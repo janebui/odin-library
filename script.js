@@ -5,28 +5,10 @@ const add = document.querySelector('#add');
 const list = document.querySelector('#booklist');
 const clear = document.querySelector('#clear');
 
-// let readButtons = [];
 
-let myLibrary = [
-    {
-        title: "Anne of Green Gables",
-        author: "Lucy Maud Montgomery",
-        pages: 300,
-        read: 1
-    },
-    {
-        title: "Pride & Prejudice",
-        author: "Jane Austen",
-        pages: 320,
-        read: 1
-    },
-    {
-        title: "The Tipping Point",
-        author: "Malcolm Gladwell",
-        pages: 210,
-        read: 0
-    },
-];
+let myLibrary = [];
+
+myLibrary.push(new Book("The Tipping Point", "Malcolm Gladwell", 180, 0))
 
 // Constructor
 function Book(title, author, pages, read) {
@@ -37,7 +19,7 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.readToggle = function() {
-    this.read == 0? 1 : 0;
+    console.log('read toggle')
 }
 
 // create a new instance
@@ -69,7 +51,6 @@ function displayBooks(myLibrary, list) {
         `;
     }).join('');
 
-    // readButtons = document.querySelectorAll('.read-toggle');
 }
 
 
@@ -80,4 +61,7 @@ newbookBtn.addEventListener('click', e => {
 form.addEventListener('submit', addBook);
 
 displayBooks(myLibrary, list);
+
+
+
 
