@@ -9,6 +9,8 @@ const clear = document.querySelector('#clear');
 let myLibrary = [];
 
 myLibrary.push(new Book("The Tipping Point", "Malcolm Gladwell", 180, 0))
+myLibrary.push(new Book("Pride & Prejudice", "Jane Austen", 300, 1))
+myLibrary.push(new Book("Odyssey", "Homer", 200, 0))
 
 // Constructor
 function Book(title, author, pages, read) {
@@ -19,7 +21,19 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.readToggle = function() {
-    console.log('read toggle')
+    this.read = !this.read;
+    console.log(this.read);
+}
+
+// when the "read" checkbox gets clicked, call the prototype method readToggle
+function checkToggle(e) {
+    if (!e.target.matches('input[type="checkbox"]')) {
+        return;
+    }
+    else {
+        const i = e.target.parentNode.dataset.index;
+        myLibrary[i].readToggle();
+    }
 }
 
 // create a new instance
@@ -29,7 +43,7 @@ function addBook(e) {
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
-    let read = document.getElementById('read').checked ? 1 : 0;
+    let read = document.getElementById('read').checked ? true : false;
 
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
@@ -39,29 +53,46 @@ function addBook(e) {
     this.reset();
 }
 
+// toggle display of Add a New Book Form
+newbookBtn.addEventListener('click', e => {
+    document.querySelector('form').classList.toggle('hide')
+})
+
+// populate list of books to be displayed
 function displayBooks(myLibrary, list) {
     list.innerHTML = myLibrary.map((book, i) => {
+
         return `
         <li data-index="${i}">
         ${book.title}
         ${book.author}
         ${book.pages}
-        <span class="read-toggle">${book.read == 1 ? "Read" : "Not Read Yet"}</span>
+        <input type="checkbox" id="item${i}" ${book.read == true ? "checked" : ""}/>
+        <label for="item${i}"></label>
+        <span class="delete">Delete</span>
         </li>
         `;
     }).join('');
 
 }
 
+// delete target book when user clicks on delete button
+function deleteBook(e) {
+    if(!e.target.matches('.delete')) return;
+    myLibrary.splice(e.target.parentNode.dataset.index, 1);
+    displayBooks(myLibrary, list);
+}
 
-newbookBtn.addEventListener('click', e => {
-    document.querySelector('form').classList.toggle('hide')
-})
+// clear all books from the list
+function clearList(e) {
+    myLibrary = [];
+    list.innerHTML = '';
+}
 
 form.addEventListener('submit', addBook);
 
 displayBooks(myLibrary, list);
 
-
-
-
+list.addEventListener('click', deleteBook);
+list.addEventListener('click', checkToggle);
+clear.addEventListener('click', clearList)

@@ -1,9 +1,65 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 input {
     display: block;
 }
 
-
+li {
+    list-style-type:none;
+}
 
 .hide {
     display: none;
+  }
+
+button, .delete {
+    background-color: #8AA29E;
+    padding: 8px 12px;
+    border: 0px transparent;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+}
+
+.delete, #clear {
+    background-color: #D9556D;
+}
+
+.delete:hover, #clear:hover {
+    background-color: #d42646;
+}
+
+button:hover {
+    background-color: #688d87;
+}
+
+.delete, button:hover {
+    cursor:pointer;
+}
+
+
+#booklist input {
+    display: none;
+  }
+  
+  #booklist input + label:before {
+    content: "Not Read";
+    padding: 7px 12px;
+    border: 1px solid #8AA29E;
+    border-radius: 5px;
+    color: #8AA29E;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+    width: 70px;
+    cursor:pointer;
+  }
+
+  #booklist input:checked + label:before {
+    content: "Read";
+    border: 1px solid #8AA29E;
+    background-color: #8AA29E;
+    color: #fff;
   }
