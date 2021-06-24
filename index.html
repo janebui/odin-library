@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,26 +9,35 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <div id="container">
+        <header>Odin Library</header>
+        <div id="subtitle">by <a href="https://www.janebui.com" target="_blank">Jane Bui</a></div>
+        <hr>
+       
+            <button id="newbook">New Book</button>
+   
+            <div id="container2">
+            <form name="form" class="hide">
+                <label>Title: <input id="title" name="title" type="text" required /></label>
+                <label>Author: <input id="author" name="author" type="text" /></label>
+                <label>Number of Pages: <input id="pages" name="pages" type="text" /></label>
+                <label><input id="read" name="read" type="radio" value="read" />Read</label>
+                <label><input id="notread" name="read" type="radio" value="notread" />Not Read</label>
+                <button id="add">Add</button>
+            </form>
+        </div>
+        <hr>
+        <ul id="booklist">
+            <li>Book</li>
+        </ul>
 
-    <button id="newbook">New Book</button>
-    <form name="form" class="hide">
-        <label>Title: <input id="title" name="title" type="text" placeholder="Title" required /></label>
-        <label>Author: <input id="author" name="author" type="text" placeholder="Author" /></label>
-        <label>Number of Pages: <input id="pages" name="pages" type="text" placeholder="Number of Pages" /></label>
-        <label>Read: <input id="read" name="read" type="radio" value="read" /></label>
-        <label>Not Read: <input id="notread" name="read" type="radio" value="notread" /></label>
-        <button id="add">Add</button>
-    </form>
-
-    <ul id="booklist">
-        <li>Book</li>
-    </ul>
-
-    <button id="clear">Clear</button>
-    
+        <div id="container2"><button id="clear">Clear All</button></div>
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>

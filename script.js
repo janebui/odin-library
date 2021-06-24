@@ -22,7 +22,7 @@ function Book(title, author, pages, read) {
 
 Book.prototype.readToggle = function() {
     this.read = !this.read;
-    console.log(this.read);
+    console.log("Did you really read it? " + this.read);
 }
 
 // when the "read" checkbox gets clicked, call the prototype method readToggle
@@ -64,13 +64,16 @@ function displayBooks(myLibrary, list) {
 
         return `
         <li data-index="${i}">
-        ${book.title}
-        ${book.author}
-        ${book.pages}
+        <div>${book.title}</div>
+        <div>${book.author}</div>
+        <div>${book.pages}</div>
+        
         <input type="checkbox" id="item${i}" ${book.read == true ? "checked" : ""}/>
         <label for="item${i}"></label>
         <span class="delete">Delete</span>
+        
         </li>
+        <hr>
         `;
     }).join('');
 

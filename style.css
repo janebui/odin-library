@@ -1,50 +1,111 @@
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
+    background-color: #F1EDEE;
 }
 
-input {
+header {
+    font-size: 3em;
+    color: #3D5467;
+}
+
+#subtitle {
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+}
+
+#container {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+input[type="text"] {
     display: block;
+    font-size: 1.2em;
+    font-family: 'Playfair Display', sans-serif;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+}
+
+#booklist {
+    padding-left: 2px;
 }
 
 li {
-    list-style-type:none;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 100px);
+    align-items: center;
 }
+
+li div:nth-child(-n+2) {
+    grid-column: span 2;
+  }
+
 
 .hide {
     display: none;
-  }
+}
 
-button, .delete {
-    background-color: #8AA29E;
-    padding: 8px 12px;
+#container2 {
+    display: flex;
+    justify-content: center;
+}
+
+#newbook,
+#add {
+    display: block;
+    margin: 20px auto;
+}
+
+button,
+.delete {
+    padding: 8px;
     border: 0px transparent;
     border-radius: 5px;
     color: #fff;
     font-size: 1em;
+    text-align: center;
+    font-family: 'Playfair Display';
 }
 
-.delete, #clear {
-    background-color: #D9556D;
-}
-
-.delete:hover, #clear:hover {
-    background-color: #d42646;
+button {
+    background-color: #8AA29E;
 }
 
 button:hover {
     background-color: #688d87;
+    cursor: pointer;
 }
 
-.delete, button:hover {
-    cursor:pointer;
+.delete,
+#clear {
+    background-color: #D9556D;
 }
 
+.delete:hover,
+#clear:hover {
+    background-color: #d42646;
+    cursor: pointer;
+}
 
 #booklist input {
     display: none;
-  }
-  
-  #booklist input + label:before {
+}
+
+#booklist input+label:before {
     content: "Not Read";
     padding: 7px 12px;
     border: 1px solid #8AA29E;
@@ -53,13 +114,25 @@ button:hover {
     font-size: 1em;
     display: inline-block;
     text-align: center;
-    width: 70px;
-    cursor:pointer;
-  }
+    width: 68px;
+    cursor: pointer;
+    /* margin: 0 8px; */
+}
 
-  #booklist input:checked + label:before {
+#booklist input:checked+label:before {
     content: "Read";
     border: 1px solid #8AA29E;
     background-color: #8AA29E;
     color: #fff;
-  }
+    width: 68px;
+}
+
+a {
+    color: #3D5467;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d42646;
+    text-decoration: underline;
+}
