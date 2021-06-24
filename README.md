@@ -21,4 +21,4 @@ Book.prototype.readToggle = function() {
 ```
 
 ## Live Demo
-[Link Here](https://)
+[Odin Library](https://janebui.github.io/odin-library/)
