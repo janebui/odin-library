@@ -66,7 +66,7 @@ function displayBooks(myLibrary, list) {
         <li data-index="${i}">
         <div>${book.title}</div>
         <div>${book.author}</div>
-        <div>${book.pages}</div>
+        <div>${book.pages} pages</div>
         
         <input type="checkbox" id="item${i}" ${book.read == true ? "checked" : ""}/>
         <label for="item${i}"></label>
