@@ -49,21 +49,31 @@ input[type=number] {
 }
 
 #booklist {
+    margin: 0;
     padding-left: 2px;
 }
 
 li {
     list-style-type: none;
-    display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     display: grid;
+    grid-gap: 5px;
     grid-template-columns: repeat(auto-fit, 100px);
     align-items: center;
+}
+
+li div:first-child {
+    font-weight:600;
 }
 
 li div:nth-child(-n+2) {
     grid-column: span 2;
   }
+
+/* li div:nth-child(4) {
+    justify-self: space-around;
+    color: aqua;
+} */
 
 
 .hide {
@@ -148,3 +158,13 @@ a:hover {
     color: #d42646;
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 480px) {
+    li {
+        display: flex;
+        flex-direction:column;
+    }
+    .delete {
+        width: 90px;
+    }
+  }
