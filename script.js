@@ -36,13 +36,18 @@ function checkToggle(e) {
     }
 }
 
+// eescape input using regex
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|<>[\]\\]/g, ''); 
+  }  
+
 // create a new instance
 function addBook(e) {
     e.preventDefault();
 
-    let title = document.getElementById('title').value;
-    let author = document.getElementById('author').value;
-    let pages = document.getElementById('pages').value;
+    let title = escapeRegExp(document.getElementById('title').value);
+    let author = escapeRegExp(document.getElementById('author').value);
+    let pages = escapeRegExp(document.getElementById('pages').value);
     let read = document.getElementById('read').checked ? true : false;
 
     let newBook = new Book(title, author, pages, read);
