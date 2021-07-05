@@ -8,29 +8,33 @@ const clear = document.querySelector('#clear');
 
 let myLibrary = [];
 
+
+
+// Class Constructor
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    readToggle() {
+        this.read = !this.read;
+        console.log("Did you really read it? " + this.read);
+    }
+}
+
+
 myLibrary.push(new Book("The Tipping Point", "Malcolm Gladwell", 180, 0))
 myLibrary.push(new Book("Pride & Prejudice", "Jane Austen", 300, 1))
 myLibrary.push(new Book("Odyssey", "Homer", 200, 0))
-
-// Constructor
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-
-Book.prototype.readToggle = function() {
-    this.read = !this.read;
-    console.log("Did you really read it? " + this.read);
-}
 
 // when the "read" checkbox gets clicked, call the prototype method readToggle
 function checkToggle(e) {
     if (!e.target.matches('input[type="checkbox"]')) {
         return;
-    }
-    else {
+    } else {
         const i = e.target.parentNode.dataset.index;
         myLibrary[i].readToggle();
     }
@@ -38,8 +42,8 @@ function checkToggle(e) {
 
 // eescape input using regex
 function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|<>[\]\\]/g, ''); 
-  }  
+    return string.replace(/[.*+?^${}()|<>[\]\\]/g, '');
+}
 
 // create a new instance
 function addBook(e) {
@@ -86,7 +90,7 @@ function displayBooks(myLibrary, list) {
 
 // delete target book when user clicks on delete button
 function deleteBook(e) {
-    if(!e.target.matches('.delete')) return;
+    if (!e.target.matches('.delete')) return;
     myLibrary.splice(e.target.parentNode.dataset.index, 1);
     displayBooks(myLibrary, list);
 }
