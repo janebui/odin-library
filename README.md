@@ -1,4 +1,4 @@
-# Odin Library
+# Odin Library classbranch
 
 by Jane Bui, 2021
 
@@ -6,21 +6,23 @@ by Jane Bui, 2021
 
 It is a list of books which you can mark as "read" or "not read." You can also add new books or delete current books on the list.
 
+This classbranch is a branch of the main project, which refactors the plain constructor to a class constructor.
 
-## Constructor
+
+## Class Constructor
 
 ```python
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-Book.prototype.readToggle = function() {
-    this.read = !this.read;
+    readToggle() {
+        this.read = !this.read;
+        console.log("Did you really read it? " + this.read);
+    }
 }
 ```
-
-## Live Demo
-[View my Odin Library](https://janebui.github.io/odin-library/)
